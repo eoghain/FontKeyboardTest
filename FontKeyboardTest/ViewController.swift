@@ -22,7 +22,7 @@ class ViewController: UIViewController {
             }
             
             iconPicker.delegate = self
-            iconPicker.icon = FontkeyboardtestIcon.money
+            iconPicker.icon = FontkeyboardtestIconEnum.money
             iconPicker.iconColor = .cyan
             self.iconPicker = iconPicker
         }
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: IconPickerDelegate {
-    func iconPicker(_ picker: IconPicker, selected: String) {
-        print("🖼 selected \(selected.utf8)")
+    func iconPicker(_ picker: IconPicker, selected: FontkeyboardtestIconEnum) {
+        print("🖼 selected \(selected.string)")
     }
 }

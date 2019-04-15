@@ -9,7 +9,7 @@
 import UIKit
 
 protocol IconPickerDelegate {
-    func iconPicker(_ picker: IconPicker, selected: String)
+    func iconPicker(_ picker: IconPicker, selected: FontkeyboardtestIconEnum)
 }
 
 class IconPicker: UIViewController {
@@ -20,15 +20,21 @@ class IconPicker: UIViewController {
     private let textField = UITextField()
     private let iconKeyboard = IconKeyboard()
     
-    @IBInspectable public var icon: String = "" {
+    @IBInspectable public var iconString: String = "" {
         didSet {
-            iconView.icon = icon
+            iconView.icon = FontkeyboardtestIconEnum.init(rawValue: iconString)
         }
     }
     
     @IBInspectable public var iconColor: UIColor = .darkText {
         didSet {
             iconView.iconColor = iconColor
+        }
+    }
+    
+    public var icon: FontkeyboardtestIconEnum = .missingIcon {
+        didSet {
+            iconView.icon = icon
         }
     }
     
@@ -70,10 +76,9 @@ class IconPicker: UIViewController {
     }
 }
 
-extension IconPicker: KeyboardDelegate {
-    func keyWasTapped(character: String) {
-        iconView.icon = character
-        iconView.setNeedsDisplay()
-        delegate?.iconPicker(self, selected: character)
+extension IconPicker: IconKeyboardDelegate {
+    func selected(icon: FontkeyboardtestIconEnum) {
+        iconView.icon = icon
+        delegate?.iconPicker(self, selected: icon)
     }
 }
