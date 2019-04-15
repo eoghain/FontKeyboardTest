@@ -1,0 +1,52 @@
+{
+  "name": "fontkeyboardtest",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "vqyhv5kmwcj9zxq28dhq5npykr2k39co",
+      "css": "basket",
+      "code": 59392,
+      "src": "modernpics"
+    },
+    {
+      "uid": "212ab54aac31030950fec3e2448ebee9",
+      "css": "money",
+      "code": 59393,
+      "src": "modernpics"
+    },
+    {
+      "uid": "dplw5xo88mzzr7b45nvjcamyyhni6drs",
+      "css": "book",
+      "code": 59394,
+      "src": "modernpics"
+    },
+    {
+      "uid": "97var6sq7rzo72ktzg1c6ph46u9pftbr",
+      "css": "write",
+      "code": 59395,
+      "src": "modernpics"
+    },
+    {
+      "uid": "ogmm8kz4f7y6ji50gzajnwed8h6ck2u7",
+      "css": "chart-bar",
+      "code": 59396,
+      "src": "modernpics"
+    },
+    {
+      "uid": "crns7fze53tnmwvi0wyfhq8whxfmmroz",
+      "css": "chart-pie",
+      "code": 59397,
+      "src": "modernpics"
+    },
+    {
+      "uid": "vsvgkgr7wqknxe7rsjrusvvs43yekcyr",
+      "css": "videocam-alt",
+      "code": 59398,
+      "src": "modernpics"
+    }
+  ]
+}
