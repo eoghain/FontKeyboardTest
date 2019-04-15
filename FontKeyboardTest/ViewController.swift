@@ -9,20 +9,29 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var fontInputControl: FontkeyboardtestIconView!
-//    @IBOutlet var hiddenTextFieldForFont: UITextField!
+    var iconPicker: IconPicker? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let iconKeyboard = IconKeyboard()
-//        hiddenTextFieldForFont.inputView = iconKeyboard.view
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "embedIconPicker" {
+            guard let iconPicker = segue.destination as? IconPicker else {
+                fatalError("embedIconPicker segue must embed an IconPicker!")
+            }
+            
+            iconPicker.delegate = self
+            iconPicker.icon = FontkeyboardtestIcon.money
+            iconPicker.iconColor = .cyan
+            self.iconPicker = iconPicker
+        }
+    }
+    
 }
 
-//extension ViewController: UITextFieldDelegate {
-//    
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        print("☝️")
-//        return true
-//    }
-//}
+extension ViewController: IconPickerDelegate {
+    func iconPicker(_ picker: IconPicker, selected: String) {
+        print("🖼 selected \(selected.utf8)")
+    }
+}

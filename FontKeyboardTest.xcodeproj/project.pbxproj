@@ -16,6 +16,7 @@
 		31DC9B372263AC5400276D6E /* FontkeyboardtestIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9B362263AC5400276D6E /* FontkeyboardtestIcon.swift */; };
 		31DC9B392263AD0A00276D6E /* FontkeyboardtestIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9B382263AD0A00276D6E /* FontkeyboardtestIconView.swift */; };
 		31DC9B3B2263BC4000276D6E /* IconKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9B3A2263BC4000276D6E /* IconKeyboard.swift */; };
+		54B702FE22640FD600B1F814 /* IconPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B702FD22640FD600B1F814 /* IconPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		31DC9B362263AC5400276D6E /* FontkeyboardtestIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontkeyboardtestIcon.swift; sourceTree = "<group>"; };
 		31DC9B382263AD0A00276D6E /* FontkeyboardtestIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontkeyboardtestIconView.swift; sourceTree = "<group>"; };
 		31DC9B3A2263BC4000276D6E /* IconKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconKeyboard.swift; sourceTree = "<group>"; };
+		54B702FD22640FD600B1F814 /* IconPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				31DC9B382263AD0A00276D6E /* FontkeyboardtestIconView.swift */,
 				31DC9B1D2263A9F000276D6E /* AppDelegate.swift */,
 				31DC9B3A2263BC4000276D6E /* IconKeyboard.swift */,
+				54B702FD22640FD600B1F814 /* IconPicker.swift */,
 				31DC9B1F2263A9F000276D6E /* ViewController.swift */,
 				31DC9B212263A9F000276D6E /* Main.storyboard */,
 				31DC9B242263A9F200276D6E /* Assets.xcassets */,
@@ -116,6 +119,7 @@
 				TargetAttributes = {
 					31DC9B192263A9F000276D6E = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -158,6 +162,7 @@
 			files = (
 				31DC9B202263A9F000276D6E /* ViewController.swift in Sources */,
 				31DC9B392263AD0A00276D6E /* FontkeyboardtestIconView.swift in Sources */,
+				54B702FE22640FD600B1F814 /* IconPicker.swift in Sources */,
 				31DC9B1E2263A9F000276D6E /* AppDelegate.swift in Sources */,
 				31DC9B372263AC5400276D6E /* FontkeyboardtestIcon.swift in Sources */,
 				31DC9B3B2263BC4000276D6E /* IconKeyboard.swift in Sources */,
@@ -315,7 +320,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.intuit.FontKeyboardTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -333,7 +338,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.intuit.FontKeyboardTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

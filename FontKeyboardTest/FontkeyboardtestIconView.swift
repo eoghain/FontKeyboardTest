@@ -8,7 +8,7 @@ import CoreText
 public class FontkeyboardtestIconView: UIView {
 
 	@IBInspectable public var icon: String = ""
-	@IBInspectable public var fontColor: UIColor = .darkText
+	@IBInspectable public var iconColor: UIColor = .darkText
 
 	override public func draw(_ rect: CGRect) {
 		super.draw(rect)
@@ -29,7 +29,7 @@ public class FontkeyboardtestIconView: UIView {
 
 		let attributes = [
 			kCTFontAttributeName : font,
-			kCTForegroundColorAttributeName : fontColor.cgColor
+			kCTForegroundColorAttributeName : iconColor.cgColor
 		] as CFDictionary
 
 		// Build the font string
