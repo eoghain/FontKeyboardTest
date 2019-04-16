@@ -37,58 +37,20 @@ def writeFile(fileName, contents):
 	f.close()
 
 def createSwift(outputDir, name, prefixText, glyphs):
-	outputFileName = outputDir + ('%sIcons.swift' % name)
-	writeFile(outputFileName, createSwiftCategory(name, prefixText, glyphs))
-	
 	outputFileName = outputDir + ('%sIcon.swift' % name)
 	writeFile(outputFileName, createSwiftEnum(name, prefixText, glyphs))
 	
 	outputFileName = outputDir + ('%sIconView.swift' % name)
 	writeFile(outputFileName, createSwiftIconView(name))
 	
-	outputFileName = outputDir + ('%sIconPickerTest.swift' % name)
+	outputFileName = outputDir + ('%sIconPicker.swift' % name)
 	writeFile(outputFileName, createSwiftIconPicker(name))
 
-def createSwiftCategory(name, prefixText, glyphs):
-	className = '%sIcons' % name
-	swiftFile = dedent('''\
-	public struct %s {
-	''' % (className))
-	
-	srcName = ''
-	lookups = ''
-
-	for glyph in glyphs:
-		if (srcName != glyph['src']):
-			srcName = glyph['src']
-
-		fontName = glyph['css']
-		fullFontName = prefixText + glyph['css']
-		swiftFile += '\tpublic static let %s = "\u{%s}"\n' % (camelCase(fontName), hex(glyph['code']).replace('0x', '').title())
-		
-		lookupName = prefixText + fontName
-		lookups += 'case "%s", "%s":\n\t\t\t\t\treturn %s.%s\n\t\t\t\t' % (fontName, lookupName, className, camelCase(fontName))
-		
-	swiftFile += ('\n\tpublic static func iconNamed(name: String) -> String {\n\t\tswitch(name) {\n')
-		
-	swiftFile += dedent('''\
-				%sdefault:
-					return "\u{26A0}"
-			}
-		}
-	}''' % (lookups))
-	return swiftFile
-
 def createSwiftEnum(name, prefixText, glyphs):
-	className = '%sIcon' % name
-	swiftFile = dedent('''\
-	public enum %s: String, CaseIterable {
-	''' % (className))
-	
 	srcName = ''
 	initCases = ''
 	cases = ''
-	fontNames = ''
+	names = ''
 	lookupNames = ''
 
 	for glyph in glyphs:
@@ -103,55 +65,53 @@ def createSwiftEnum(name, prefixText, glyphs):
 		# Switch and Enum Cases
 		cases += 'case %s = "%s"\n\t\t' % (camelCase(fontName), hexCode)
 		initCases += 'case "%s", "%s", "%s": self = .%s\n\t\t\t\t' % (fontName, lookupName, hexCode, camelCase(fontName))
-		fontNames += 'case .%s: return "%s"\n\t\t\t\t' % (camelCase(fontName), fontName)
+		names += 'case .%s: return "%s"\n\t\t\t\t' % (camelCase(fontName), fontName)
 		lookupNames += 'case .%s: return "%s"\n\t\t\t\t' % (camelCase(fontName), lookupName) 
 		
 	swiftFile = dedent('''\
-	public enum %s: String, CaseIterable {
-		%s
+	public enum %(fontName)sIcon: String, CaseIterable {
+		%(cases)s
 		case missingIcon = "\u{26A0}"
 		
 		var string: String { return rawValue }
 		
 		var name: String {
 			switch(self) {
-				%s
+				%(names)s
 				default: return "missing-icon"
 			}
 		}
 		
 		var prefixedName: String {
 			switch(self) {
-				%s
+				%(lookupNames)s
 				default: return "icon-missing"
 			}
 		}
 		
-		static var allCasesButMissing: [%s] {
+		static var allCasesButMissing: [%(fontName)sIcon] {
 			return allCases.filter { $0 != .missingIcon }
 		}
 		
 		public init(rawValue: String) {
 			switch rawValue {
-				%s
+				%(initCases)s
 				default: self = .missingIcon
 			}
 		}
-	}''' % (className, cases.rstrip(), fontNames.rstrip(), lookupNames.rstrip(), className, initCases.rstrip()))
+	}''' % ({"fontName": name, "cases": cases.rstrip(), "names": names.rstrip(), "lookupNames": lookupNames.rstrip(), "initCases": initCases.rstrip()}))
 	return swiftFile
 	
 def createSwiftIconView(name):
-	className = "%sIconView" % name
-	iconFontName = "%sIcon" % name
 	swiftFile = dedent('''\
 	import UIKit
 	import CoreText
 
-	public class %s: UIView {
+	public class %(fontName)sIconView: UIView {
 
 		@IBInspectable public var iconString: String = "" {
 			didSet {
-				icon = %s(rawValue: iconString)
+				icon = %(fontName)sIcon(rawValue: iconString)
 			}
 		}
 		
@@ -161,7 +121,7 @@ def createSwiftIconView(name):
 			}
 		}
 
-		public var icon: %s? {
+		public var icon: %(fontName)sIcon? {
 			didSet {
 				setNeedsDisplay()
 			}
@@ -181,7 +141,7 @@ def createSwiftIconView(name):
 			// Initialize the string and font
 			let fontSize: CGFloat = min(rect.size.width, rect.size.height) / 2
 
-			let fontDescriptor = CTFontDescriptorCreateWithNameAndSize("%s" as CFString, fontSize)
+			let fontDescriptor = CTFontDescriptorCreateWithNameAndSize("%(fontName)s" as CFString, fontSize)
 			let font = CTFontCreateWithFontDescriptor(fontDescriptor, fontSize, nil)
 
 			let attributes = [
@@ -204,7 +164,7 @@ def createSwiftIconView(name):
 			context.textPosition = CGPoint(x: (rect.size.width - coreTextSize.width) / 2, y: (rect.size.height - coreTextSize.height) / 2)
 			CTLineDraw(line, context)
 		}
-	}''' % (className, iconFontName, iconFontName, name))
+	}''' % ({"fontName": name}))
 	return swiftFile
 
 def createSwiftIconPicker(name):
