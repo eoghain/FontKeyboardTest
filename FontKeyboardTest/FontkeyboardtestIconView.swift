@@ -7,30 +7,29 @@ import CoreText
 
 public class FontkeyboardtestIconView: UIView {
 
-    @IBInspectable public var iconString: String = "" {
-        didSet {
-            icon = FontkeyboardtestIconEnum(rawValue: iconString)
-        }
-    }
-    @IBInspectable public var iconColor: UIColor = .darkText {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
-    
-    public var icon: FontkeyboardtestIconEnum? = nil {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
+	@IBInspectable public var iconString: String = "" {
+		didSet {
+			icon = FontkeyboardtestIcon(rawValue: iconString)
+		}
+	}
+
+	@IBInspectable public var iconColor: UIColor = .darkText {
+		didSet {
+			setNeedsDisplay()
+		}
+	}
+
+	public var icon: FontkeyboardtestIcon? {
+		didSet {
+			setNeedsDisplay()
+		}
+	}
 
 	override public func draw(_ rect: CGRect) {
 		super.draw(rect)
-        
-        // Nothing to draw if we don't have an icon
-        guard let icon = self.icon else { return }
+		guard let icon = self.icon else { return }
 
-		// Initialize the context & string
+		// Initialize the context
 		guard let context = UIGraphicsGetCurrentContext() else { return }
 
 		context.textMatrix = .identity
@@ -38,7 +37,6 @@ public class FontkeyboardtestIconView: UIView {
 		context.scaleBy(x: 1, y: -1)
 
 		// Initialize the string and font
-        let iconString = icon.string as CFString
 		let fontSize: CGFloat = min(rect.size.width, rect.size.height) / 2
 
 		let fontDescriptor = CTFontDescriptorCreateWithNameAndSize("Fontkeyboardtest" as CFString, fontSize)
@@ -50,7 +48,8 @@ public class FontkeyboardtestIconView: UIView {
 		] as CFDictionary
 
 		// Build the font string
-		guard let attrString = CFAttributedStringCreate(kCFAllocatorDefault, iconString, attributes) else { return }
+		let cfString = icon.string as CFString
+		guard let attrString = CFAttributedStringCreate(kCFAllocatorDefault, cfString, attributes) else { return }
 
 		let line = CTLineCreateWithAttributedString(attrString)
 

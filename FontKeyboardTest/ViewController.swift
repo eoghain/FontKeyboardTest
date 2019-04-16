@@ -15,23 +15,26 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "embedIconPicker" {
-            guard let iconPicker = segue.destination as? IconPicker else {
-                fatalError("embedIconPicker segue must embed an IconPicker!")
-            }
-            
-            iconPicker.delegate = self
-            iconPicker.icon = FontkeyboardtestIconEnum.money
-            iconPicker.iconColor = .cyan
-            self.iconPicker = iconPicker
-        }
+    @IBAction func iconChanged(_ sender: IconPicker) {
+        print("\(sender.iconColor), \(sender.icon?.name ?? "nil")")
     }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "embedIconPicker" {
+//            guard let iconPicker = segue.destination as? IconPicker else {
+//                fatalError("embedIconPicker segue must embed an IconPicker!")
+//            }
+//
+//            iconPicker.delegate = self
+//            iconPicker.icon = FontkeyboardtestIcon.money
+//            iconPicker.iconColor = .cyan
+//            self.iconPicker = iconPicker
+//        }
+//    }
     
 }
-
-extension ViewController: IconPickerDelegate {
-    func iconPicker(_ picker: IconPicker, selected: FontkeyboardtestIconEnum) {
-        print("🖼 selected \(selected.string)")
-    }
-}
+//
+//extension ViewController: IconPickerDelegate {
+//    func iconPicker(_ picker: IconPicker, selected: FontkeyboardtestIcon) {
+//        print("🖼 selected \(selected.string)")
+//    }
+//}

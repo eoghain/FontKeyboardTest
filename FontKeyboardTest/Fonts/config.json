@@ -47,6 +47,60 @@
       "css": "videocam-alt",
       "code": 59398,
       "src": "modernpics"
+    },
+    {
+      "uid": "id8wp0cygl9trzbhlbd9o0fygiesi629",
+      "css": "search",
+      "code": 59399,
+      "src": "modernpics"
+    },
+    {
+      "uid": "ae3so8q0b0n2h8esv9flua2nmwswa8fd",
+      "css": "mail",
+      "code": 59400,
+      "src": "modernpics"
+    },
+    {
+      "uid": "jwebw8rhtovm6adljbdixtj9ltdrzkvb",
+      "css": "thumbs-up",
+      "code": 59401,
+      "src": "modernpics"
+    },
+    {
+      "uid": "h9yii6q602rt4dxjmy9k9wc3jkwzk8d0",
+      "css": "thumbs-down",
+      "code": 59402,
+      "src": "modernpics"
+    },
+    {
+      "uid": "kfk635sf697exf2r3jqx06zz54e1rgx4",
+      "css": "download",
+      "code": 59403,
+      "src": "modernpics"
+    },
+    {
+      "uid": "m3m8301t2xdy30x4lp7txm0vztl67tcl",
+      "css": "mobile",
+      "code": 59404,
+      "src": "modernpics"
+    },
+    {
+      "uid": "uetwmlvm6z9eaot1t74vvsgrte9vwi0n",
+      "css": "bullhorn",
+      "code": 59405,
+      "src": "modernpics"
+    },
+    {
+      "uid": "uaps3vfayj05q7h4rvb10m890xvaequb",
+      "css": "bell",
+      "code": 59406,
+      "src": "modernpics"
+    },
+    {
+      "uid": "a66a6e088038a1881d532b6675bf8412",
+      "css": "info",
+      "code": 59407,
+      "src": "modernpics"
     }
   ]
 }

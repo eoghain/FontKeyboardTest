@@ -10,27 +10,22 @@ import UIKit
 import QuartzCore
 
 protocol IconKeyboardDelegate: class {
-    func selected(icon: FontkeyboardtestIconEnum)
+    func selected(icon: FontkeyboardtestIcon)
 }
 
 class IconKeyboardCell: UICollectionViewCell {
+    var selectionColor: UIColor = .cyan
     var iconView: FontkeyboardtestIconView = FontkeyboardtestIconView()
-    var icon: FontkeyboardtestIconEnum = .missingIcon {
+    var icon: FontkeyboardtestIcon = .missingIcon {
         didSet {
             iconView.icon = icon
         }
     }
     
-//    var icon: String = "" {
-//        didSet {
-//            iconView.icon = icon
-//        }
-//    }
-    
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                iconView.iconColor = .cyan
+                iconView.iconColor = selectionColor
             }
             else {
                 iconView.iconColor = .darkText
@@ -56,34 +51,9 @@ class IconKeyboardCell: UICollectionViewCell {
         backgroundColor = .clear
         contentView.backgroundColor = .white
         
-        // Round and Shadow
-//        contentView.layer.cornerRadius = 10
-//        contentView.layer.borderWidth = 1.0
-//        contentView.layer.borderColor = UIColor.clear.cgColor
-//        contentView.layer.masksToBounds = true
-//
-//        layer.shadowColor = UIColor.lightGray.cgColor
-//        layer.shadowOffset = CGSize(width: 0, height: 2.0)
-//        layer.shadowRadius = 10
-//        layer.shadowOpacity = 1.0
-//        layer.masksToBounds = false
-//        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
-//        layer.backgroundColor = UIColor.clear.cgColor
-        
         // IconView
         iconView.backgroundColor = .white
         contentView.addSubview(iconView)
-        
-        // Round and Shadow
-//        iconView.clipsToBounds = false
-//        iconView.layer.cornerRadius = 10.0
-//        iconView.layer.shadowColor = UIColor.black.cgColor
-//        iconView.layer.shadowOffset = CGSize(width: 0, height: 2)
-//        iconView.layer.shadowOpacity = 0.5
-//        iconView.layer.shadowRadius = 5
-//        iconView.layer.shadowPath = UIBezierPath(roundedRect: iconView.bounds, cornerRadius: iconView.layer.cornerRadius).cgPath
-//        iconView.layer.masksToBounds = true
-        
         iconView.translatesAutoresizingMaskIntoConstraints = false
         iconView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
         iconView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
@@ -95,6 +65,7 @@ class IconKeyboardCell: UICollectionViewCell {
 class IconKeyboard: UIViewController {
     
     public var delegate: IconKeyboardDelegate?
+    public var selectionColor: UIColor = .cyan
     
     private var cellIdentifier = "iconButton"
     private var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -113,10 +84,10 @@ class IconKeyboard: UIViewController {
         view.backgroundColor = .lightGray
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.estimatedItemSize = CGSize(width: 150, height: 150)
+        layout.estimatedItemSize = CGSize(width: 95, height: 95)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10)
         
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         collectionView.backgroundColor = .clear
@@ -126,8 +97,8 @@ class IconKeyboard: UIViewController {
         collectionView.register(IconKeyboardCell.self, forCellWithReuseIdentifier: cellIdentifier)
         
         view.addSubview(collectionView)
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
@@ -136,15 +107,21 @@ class IconKeyboard: UIViewController {
     }
 }
 
+extension IconKeyboard: UICollectionViewDelegateFlowLayout {
+}
+
 extension IconKeyboard: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return FontkeyboardtestIconEnum.allCasesButMissing.count
+        return FontkeyboardtestIcon.allCasesButMissing.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! IconKeyboardCell
         
-        cell.icon = FontkeyboardtestIconEnum.allCasesButMissing[indexPath.row]
+        cell.icon = FontkeyboardtestIcon.allCasesButMissing[indexPath.row]
+        
+        // Selection Color
+        cell.selectionColor = selectionColor
         
         // Round & Shadow
         cell.contentView.layer.cornerRadius = 10.0
@@ -166,6 +143,6 @@ extension IconKeyboard: UICollectionViewDataSource {
 extension IconKeyboard: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.selected(icon: FontkeyboardtestIconEnum.allCasesButMissing[indexPath.row])
+        delegate?.selected(icon: FontkeyboardtestIcon.allCasesButMissing[indexPath.row])
     }
 }
