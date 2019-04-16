@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		313776422266885000164AD6 /* FontkeyboardtestIconPickerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313776412266885000164AD6 /* FontkeyboardtestIconPickerTest.swift */; };
 		31DC9B1E2263A9F000276D6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9B1D2263A9F000276D6E /* AppDelegate.swift */; };
 		31DC9B202263A9F000276D6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9B1F2263A9F000276D6E /* ViewController.swift */; };
 		31DC9B232263A9F000276D6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31DC9B212263A9F000276D6E /* Main.storyboard */; };
@@ -15,11 +16,10 @@
 		31DC9B352263ABE900276D6E /* fontkeyboardtest.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31DC9B322263ABE900276D6E /* fontkeyboardtest.ttf */; };
 		31DC9B372263AC5400276D6E /* FontkeyboardtestIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9B362263AC5400276D6E /* FontkeyboardtestIcon.swift */; };
 		31DC9B392263AD0A00276D6E /* FontkeyboardtestIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9B382263AD0A00276D6E /* FontkeyboardtestIconView.swift */; };
-		31DC9B3B2263BC4000276D6E /* IconKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9B3A2263BC4000276D6E /* IconKeyboard.swift */; };
-		54B702FE22640FD600B1F814 /* IconPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B702FD22640FD600B1F814 /* IconPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		313776412266885000164AD6 /* FontkeyboardtestIconPickerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontkeyboardtestIconPickerTest.swift; sourceTree = "<group>"; };
 		31DC9B1A2263A9F000276D6E /* FontKeyboardTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontKeyboardTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DC9B1D2263A9F000276D6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31DC9B1F2263A9F000276D6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,8 +30,6 @@
 		31DC9B322263ABE900276D6E /* fontkeyboardtest.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fontkeyboardtest.ttf; sourceTree = "<group>"; };
 		31DC9B362263AC5400276D6E /* FontkeyboardtestIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontkeyboardtestIcon.swift; sourceTree = "<group>"; };
 		31DC9B382263AD0A00276D6E /* FontkeyboardtestIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontkeyboardtestIconView.swift; sourceTree = "<group>"; };
-		31DC9B3A2263BC4000276D6E /* IconKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconKeyboard.swift; sourceTree = "<group>"; };
-		54B702FD22640FD600B1F814 /* IconPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +62,11 @@
 		31DC9B1C2263A9F000276D6E /* FontKeyboardTest */ = {
 			isa = PBXGroup;
 			children = (
+				313776412266885000164AD6 /* FontkeyboardtestIconPickerTest.swift */,
 				31DC9B302263ABE900276D6E /* Fonts */,
 				31DC9B362263AC5400276D6E /* FontkeyboardtestIcon.swift */,
 				31DC9B382263AD0A00276D6E /* FontkeyboardtestIconView.swift */,
 				31DC9B1D2263A9F000276D6E /* AppDelegate.swift */,
-				31DC9B3A2263BC4000276D6E /* IconKeyboard.swift */,
-				54B702FD22640FD600B1F814 /* IconPicker.swift */,
 				31DC9B1F2263A9F000276D6E /* ViewController.swift */,
 				31DC9B212263A9F000276D6E /* Main.storyboard */,
 				31DC9B242263A9F200276D6E /* Assets.xcassets */,
@@ -162,10 +159,9 @@
 			files = (
 				31DC9B202263A9F000276D6E /* ViewController.swift in Sources */,
 				31DC9B392263AD0A00276D6E /* FontkeyboardtestIconView.swift in Sources */,
-				54B702FE22640FD600B1F814 /* IconPicker.swift in Sources */,
+				313776422266885000164AD6 /* FontkeyboardtestIconPickerTest.swift in Sources */,
 				31DC9B1E2263A9F000276D6E /* AppDelegate.swift in Sources */,
 				31DC9B372263AC5400276D6E /* FontkeyboardtestIcon.swift in Sources */,
-				31DC9B3B2263BC4000276D6E /* IconKeyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CnX-bq-ygP" customClass="IconPicker" customModule="FontKeyboardTest" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CnX-bq-ygP" customClass="FontkeyboardtestIconPicker" customModule="FontKeyboardTest" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="60" width="100" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -32,10 +32,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="iconString" value=""/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="iconChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="BQ2-bc-E6n"/>
+                                    <action selector="iconChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="p57-aA-yde"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8p-xu-vLZ" customClass="IconPicker" customModule="FontKeyboardTest" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8p-xu-vLZ" customClass="FontkeyboardtestIconPicker" customModule="FontKeyboardTest" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="170" width="100" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
