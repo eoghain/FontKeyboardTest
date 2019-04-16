@@ -81,7 +81,7 @@ class IconKeyboard: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .clear
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.estimatedItemSize = CGSize(width: 95, height: 95)

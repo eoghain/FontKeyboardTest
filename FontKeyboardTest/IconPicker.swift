@@ -77,13 +77,26 @@ class IconPicker: UIControl {
         
         addSubview(textField)
         textField.inputView = iconKeyboard.view
+        
+        let flexBarButton = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(donePressed(_:)))
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        textField.inputAccessoryView = keyboardToolbar
+        
         iconKeyboard.delegate = self
         textField.alpha = 0
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.topAnchor.constraint(equalTo: topAnchor).isActive = true
         textField.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         textField.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         textField.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    }
+    
+    @objc func donePressed(_ sender: Any) {
+        textField.resignFirstResponder()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

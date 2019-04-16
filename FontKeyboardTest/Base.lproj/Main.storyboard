@@ -53,7 +53,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap icon to change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFN-MM-6aZ">
-                                <rect key="frame" x="115" y="289" width="145" height="47"/>
+                                <rect key="frame" x="115" y="289" width="145" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -66,7 +66,6 @@
                             <constraint firstItem="CnX-bq-ygP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="Brx-lt-IkY"/>
                             <constraint firstItem="CnX-bq-ygP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E2H-x0-x5b"/>
                             <constraint firstItem="I8p-xu-vLZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H1l-Ro-dyT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jFN-MM-6aZ" secondAttribute="bottom" constant="331" id="iYg-rS-3vG"/>
                             <constraint firstItem="jFN-MM-6aZ" firstAttribute="top" secondItem="I8p-xu-vLZ" secondAttribute="bottom" constant="19" id="ikf-kk-52i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
